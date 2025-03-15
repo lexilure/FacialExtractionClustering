@@ -17,7 +17,7 @@ processes and analyzes facial analysis data from OpenFace, specifically for thum
 
 content: Data Merging,Data Preprocessing,Data Analysis
 
-install dependencies :`pip install pandas numpy matplotlib seaborn`
+install dependencies :`pip install pandas ,numpy, matplotlib seaborn, opencv-python`
 
 ensure that the OpenFace output files are available in CSV format and update the script accordingly.
 
@@ -26,7 +26,7 @@ This project applies k-Modes clustering to categorical data. k-Modes is an unsup
 
 content:Load Data,Apply k-modes clustering, Evaluate and visualize results
 
-install dependencies :`pip install pandas kmodes matplotlib seaborn scikit-learn
+install dependencies :`pip install pandas, kmodes, matplotlib, seaborn, scikit-learn
 `
 The optimal number of clusters can be determined using the **cost function or silhouette analysis.**
 Different initialization methods (Cao, Huang, random) can lead to different results.
