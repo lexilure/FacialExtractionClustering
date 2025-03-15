@@ -14,18 +14,17 @@ processes and analyzes facial analysis data from OpenFace, specifically for thum
 
 content: Data Merging,Data Preprocessing,Data Analysis
 
-install dependencies :pip install pandas numpy matplotlib seaborn
+install dependencies :'pip install pandas numpy matplotlib seaborn'
 
-// Ensure that the OpenFace output files are available in CSV format and update the script accordingly.
+ensure that the OpenFace output files are available in CSV format and update the script accordingly.
 
 # *kmodes.ipynb*
 This project applies k-Modes clustering to categorical data. k-Modes is an unsupervised machine learning algorithm that extends k-Means for categorical variables by using the mode instead of the mean for centroid updates.
 
-
 content:Load Data,Apply k-modes clustering, Evaluate and visualize results
 
-install dependencies :pip install pandas kmodes matplotlib seaborn scikit-learn
+install dependencies :'pip install pandas kmodes matplotlib seaborn scikit-learn'
 
-*The optimal number of clusters can be determined using the cost function or silhouette analysis.
-*Different initialization methods (Cao, Huang, random) can lead to different results.
+The optimal number of clusters can be determined using the **cost function or silhouette analysis.**
+Different initialization methods (Cao, Huang, random) can lead to different results.
 
