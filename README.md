@@ -31,3 +31,5 @@ install dependencies :`pip install pandas, kmodes, matplotlib, seaborn, scikit-l
 The optimal number of clusters can be determined using the **cost function or silhouette analysis.**
 Different initialization methods (Cao, Huang, random) can lead to different results.
 
+csv that is utilized: filtered_au_data.csv
+
