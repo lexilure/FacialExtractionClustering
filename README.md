@@ -6,19 +6,20 @@ This repository provides a comprehensive pipeline for clustering YouTube videos 
 
 ```
 FacialExtractionClustering/
-├── processed_faces_v4_aggregated.csv   # Aggregated AU features per video
-├── Results_Count_Final.csv             # Video engagement metrics
-├── clustered_data.csv                  # Cluster assignments
-├── cluster_anova_results_raw.csv       # ANOVA results for engagement metrics
-├── channel_weighted_data.csv           # Channel-weighted engagement data
-├── weighted_cluster_statistics.csv     # Weighted statistics by cluster
-├── top_channels_per_face_cluster.csv   # Top channels per cluster
-├── merged_all_data.csv                 # Merged channel, cluster, and engagement data
-├── merged_au_engagement_data.csv       # Merged AU and engagement data
-├── kmeans.ipynb                        # Main clustering and analysis notebook
-├── face correlation analysis.ipynb     # Engagement and correlation analysis notebook
-├── README.md                           # Project documentation
-└── ...                                 # Additional files and outputs
+├── data/
+│   ├── processed_faces_v4_aggregated.csv   # Aggregated AU features per video
+│   ├── Results_Count_Final.csv             # Video engagement metrics
+│   ├── clustered_data.csv                  # Cluster assignments
+│   ├── cluster_anova_results_raw.csv       # ANOVA results for engagement metrics
+│   ├── channel_weighted_data.csv           # Channel-weighted engagement data
+│   ├── weighted_cluster_statistics.csv     # Weighted statistics by cluster
+│   ├── top_channels_per_face_cluster.csv   # Top channels per cluster
+│   ├── merged_all_data.csv                 # Merged channel, cluster, and engagement data
+│   ├── merged_au_engagement_data.csv       # Merged AU and engagement data
+├── Main Code/
+│   ├── kmeans.ipynb                        # Main clustering and analysis notebook
+│   ├── face correlation analysis.ipynb     # Engagement and correlation analysis notebook
+├── README.md                               # Project documentation
 ```
 
 ## Features
