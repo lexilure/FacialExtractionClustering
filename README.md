@@ -1,65 +1,137 @@
 # Facial Action Unit Clustering and Engagement Analysis
 
-## Overview
+This repository provides a comprehensive pipeline for clustering YouTube videos based on facial Action Unit (AU) features and analyzing the relationship between facial expressions and video engagement metrics. The project includes data preprocessing, clustering (KMeans), statistical analysis, and visualization.
 
-This project clusters videos based on facial Action Unit (AU) features and analyzes the relationship between facial expressions and video engagement metrics (views, likes, comments). The workflow includes data preprocessing, clustering, cluster interpretation, visualization, and statistical analysis.
+## Project Structure
 
-## Workflow
+```
+FacialExtractionClustering/
+├── processed_faces_v4_aggregated.csv   # Aggregated AU features per video
+├── clustered_data.csv                  # Cluster assignments
+├── Results_Count_Final.csv             # Video engagement metrics
+├── cluster_anova_results_raw.csv       # ANOVA results for engagement metrics
+├── channel_weighted_data.csv           # Channel-weighted engagement data
+├── weighted_cluster_statistics.csv     # Weighted statistics by cluster
+├── top_channels_per_face_cluster.csv   # Top channels per cluster
+├── merged_all_data.csv                 # Merged channel, cluster, and engagement data
+├── merged_au_engagement_data.csv       # Merged AU and engagement data
+├── kmeans.ipynb                        # Main clustering and analysis notebook
+├── face correlation analysis.ipynb     # Engagement and correlation analysis notebook
+├── README.md                           # Project documentation
+└── ...                                 # Additional files and outputs
+```
 
-1. **Data Preparation**
-    - Loads AU data from `processed_faces_v4_aggregated.csv`.
-    - Aggregates AU features per video (`Video_ID`), removes columns ending with `_c`.
-    - Scales features for clustering.
+## Features
 
-2. **Clustering**
-    - Uses KMeans clustering to group videos by AU patterns.
-    - Finds the optimal number of clusters using silhouette scores.
-    - Assigns cluster labels and saves results to `clustered_data.csv`.
+- **AU Data Aggregation**: Aggregate facial Action Unit features per video
+- **KMeans Clustering**: Group videos by AU patterns and find optimal clusters
+- **Cluster Analysis**: Identify distinctive AUs and interpret cluster meanings
+- **Engagement Analysis**: Merge clusters with engagement metrics and perform statistical tests
+- **Channel Weighting**: Adjust engagement analysis for channel frequency
+- **Visualization**: Visualize clusters, engagement distributions, and AU correlations
 
-3. **Cluster Analysis**
-    - Identifies distinctive AUs for each cluster and interprets their meanings.
-    - Visualizes clusters in PCA space and shows representative images.
-    - Maps AU patterns to likely emotions using standard FACS definitions.
+## Installation
 
-4. **Statistical Analysis**
-    - Merges cluster assignments with engagement metrics from `Results_Count_Final.csv`.
-    - Performs statistical tests (Mann-Whitney U, ANOVA) to compare engagement across clusters.
-    - Computes and visualizes correlations between AUs and engagement metrics.
+### Prerequisites
 
-5. **Visualization**
-    - Plots distinctive features for each cluster.
-    - Displays representative images and saves cluster images as PNGs.
-    - Visualizes engagement metric distributions and AU-engagement correlations.
+- Python 3.8 or higher
+- pip (Python package installer)
+
+### Steps
+
+1. Clone the repository:
+
+   ```bash
+   git clone https://github.com/lexilure/FacialExtractionClustering.git
+   cd FacialExtractionClustering
+   ```
+
+2. Install the required dependencies:
+
+   ```bash
+   pip install pandas numpy matplotlib seaborn scikit-learn scipy pillow
+   ```
+
+## Usage
+
+### Clustering Pipeline
+
+The main clustering and analysis pipeline is in `kmeans.ipynb`:
+
+- Loads and preprocesses AU data
+- Aggregates features and scales for clustering
+- Finds optimal clusters and performs KMeans clustering
+- Visualizes clusters and calculates intra-cluster distances
+- Saves cluster assignments for further analysis
+
+To run the pipeline:
+
+1. Open `kmeans.ipynb` in Jupyter Notebook or VS Code
+2. Run all cells sequentially to reproduce the analysis and visualizations
+
+### Engagement and Correlation Analysis
+
+For engagement and correlation analysis:
+
+1. Open `face correlation analysis.ipynb`
+2. Run all cells to:
+   - Merge cluster assignments with channel and engagement data
+   - Apply channel weighting
+   - Perform ANOVA and other statistical tests
+   - Visualize engagement metrics and cluster distributions
+   - Save merged and weighted datasets
+
+## Data Flow
+
+1. **Raw AU Data** (`processed_faces_v4_aggregated.csv`): Aggregated facial features
+2. **Clustering** (`kmeans.ipynb`): Cluster videos by AU patterns
+3. **Cluster Assignments** (`clustered_data.csv`): Output of clustering
+4. **Engagement Analysis** (`face correlation analysis.ipynb`): Merge with engagement data, analyze, and visualize
+5. **Results**: Cluster statistics, ANOVA results, weighted statistics, and visualizations
 
 ## Key Files
 
-- `kmeans.ipynb`: Main notebook for clustering and analysis.
-- `processed_faces_v4_aggregated.csv`: Input data with aggregated AU features.
-- `clustered_data.csv`: Output with cluster assignments.
-- `Results_Count_Final.csv`: Video engagement metrics.
-- `cluster_anova_results_raw.csv`: ANOVA results for engagement metrics by cluster.
+| File/Directory                      | Description                                         |
+| ----------------------------------- | --------------------------------------------------- |
+| `kmeans.ipynb`                      | Main notebook for clustering and analysis           |
+| `face correlation analysis.ipynb`   | Engagement and correlation analysis notebook        |
+| `processed_faces_v4_aggregated.csv` | Input data with aggregated AU features              |
+| `clustered_data.csv`                | Output with cluster assignments                     |
+| `Results_Count_Final.csv`           | Video engagement metrics                            |
+| `cluster_anova_results_raw.csv`     | ANOVA results for engagement metrics by cluster     |
+| `channel_weighted_data.csv`         | Channel-weighted engagement data                    |
+| `weighted_cluster_statistics.csv`   | Weighted statistics by cluster                      |
+| `top_channels_per_face_cluster.csv` | Top channels per face cluster                       |
 
-## How to Run
+## Results
 
-1. **Install Dependencies**
+The pipeline generates several types of outputs:
 
-    ```bash
-    pip install pandas numpy matplotlib seaborn scikit-learn scipy pillow
-    ```
+- **Cluster Assignments**: Videos grouped by facial AU similarity
+- **Cluster Statistics**: Distinctive features and intra-cluster distances
+- **Engagement Analysis**: Statistical test results and AU-engagement correlations
+- **Weighted Statistics**: Channel-weighted engagement metrics by cluster
+- **Visualizations**: Cluster plots, engagement distributions, and AU correlations
 
-2. **Run the Notebook**
+## Troubleshooting
 
-    - Open `kmeans.ipynb` in Jupyter Notebook or VS Code.
-    - Execute cells sequentially to reproduce the analysis and visualizations.
+### Common Issues
 
-## Outputs
+1. **Notebook not showing results**: Run all cells from the beginning
+2. **Missing Dependencies**: Ensure all packages are installed via pip
+3. **Data File Not Found**: Check that all required CSV files are present in the project root
 
-- Cluster assignments and statistics.
-- Visualizations of clusters, distinctive features, and representative images.
-- Statistical test results and AU-engagement correlations.
+## Contributing
 
-## Notes
+1. Fork the repository
+2. Create a feature branch
+3. Make your changes
+4. Submit a pull request
 
-- AU meanings are mapped using the `au_meaning` dictionary in the notebook.
-- Emotion mappings are based on standard FACS definitions.
-- Representative images are loaded from the directory specified by `base_path`.
+## License
+
+This project is part of academic research. Please cite appropriately if using this code.
+
+## Contact
+
+For questions or issues, please open an issue on GitHub or contact the repository
